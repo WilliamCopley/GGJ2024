@@ -50,7 +50,9 @@ public class MainPlayer : MonoBehaviour
             print("DOING PING");
             foreach (ChildScript eachKid in MainGameSingleton.singletonInstance.kids)
             {
-                eachKid.doPing(transform, pingDistance);
+                if(eachKid != null) { 
+                    eachKid.doPing(transform, pingDistance); 
+                }
             }
         }
 
@@ -82,8 +84,10 @@ public class MainPlayer : MonoBehaviour
 
     private void movePlayer()
     {
-        Vector3 horizontalMove = transform.right * Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-        Vector3 forwardMove = transform.forward * Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        Vector3 forwardsVector = new Vector3(mainCamera.forward.x, 0, mainCamera.forward.z).normalized;
+        Vector3 rightVector = new Vector3(mainCamera.right.x, 0, mainCamera.right.z).normalized;
+        Vector3 horizontalMove = rightVector * Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        Vector3 forwardMove = forwardsVector * Input.GetAxis("Vertical") * speed * Time.deltaTime;
         transform.position += horizontalMove + forwardMove;
 
         if (isTouchingGround && Input.GetButtonDown("Jump"))
@@ -103,8 +107,8 @@ public class MainPlayer : MonoBehaviour
 
         if(cameraRotation.x < 0)cameraRotation.x += 360;
         if (cameraRotation.x > 360) cameraRotation.x -= 360;
-        transform.localRotation = Quaternion.Euler(0, cameraRotation.x, 0);
-        mainCamera.localRotation = Quaternion.Euler(-cameraRotation.y, 0, 0);
+        //transform.localRotation = Quaternion.Euler(0, cameraRotation.x, 0);
+        mainCamera.localRotation = Quaternion.Euler(-cameraRotation.y, cameraRotation.x, 0);
 }
 
     private void OnCollisionEnter(Collision collision)
