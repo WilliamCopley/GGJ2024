@@ -11,6 +11,16 @@ public class Interactable : MonoBehaviour
     private Animator changingAnimator;
     [SerializeField]
     private string animatorField = "interactionToggle";
+    [SerializeField]
+    private bool isInverseAnimation = false;
+
+    private void Start()
+    {
+        if (changingAnimator != null)
+        {
+            changingAnimator.SetBool("isInverse", isInverseAnimation);
+        }
+    }
     public void doInteract()
     {
         toggleState = !toggleState;
@@ -20,4 +30,14 @@ public class Interactable : MonoBehaviour
             changingAnimator.SetBool(animatorField, toggleState);
         }
     }
+
+    public void doInteractNoInvoke()
+    {
+        toggleState = !toggleState;
+        if (changingAnimator != null)
+        {
+            changingAnimator.SetBool(animatorField, toggleState);
+        }
+    }
+
 }
