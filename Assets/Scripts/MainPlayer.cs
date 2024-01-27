@@ -13,6 +13,12 @@ public class MainPlayer : MonoBehaviour
     private Transform mainCamera;
     [SerializeField]
     private float jumpHeight = 10;
+    [SerializeField]
+    private GameObject smokeObject;
+    [SerializeField]
+    private Transform bulletsParent;
+    [SerializeField]
+    private LayerMask IgnoreMe;
 
     private bool isTouchingGround = true;
     private Vector2 cameraRotation;
@@ -32,6 +38,43 @@ public class MainPlayer : MonoBehaviour
     {
         movePlayer();
         rotateCamera();
+        doInteractions();
+    }
+
+    private void doInteractions()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            RaycastHit hit;
+            // Does the ray intersect any objects excluding the player layer
+            if (Physics.Raycast(mainCamera.position, mainCamera.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, ~IgnoreMe))
+            {
+                GameObject spawnedObject = GameObject.Instantiate(smokeObject);
+                spawnedObject.transform.parent = bulletsParent;
+                spawnedObject.transform.position = hit.point;
+            }
+        }
+
+        if (Input.GetButtonDown("Interact"))
+        {
+            RaycastHit hit;
+            // Does the ray intersect any objects excluding the player layer
+            if (Physics.Raycast(mainCamera.position, mainCamera.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, ~IgnoreMe))
+            {
+                Debug.DrawRay(mainCamera.position, mainCamera.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+                Debug.Log("Did Hit");
+                Interactable tempInteractable = hit.transform.GetComponent<Interactable>();
+                if(tempInteractable != null)
+                {
+                    tempInteractable.doInteract();
+                }
+            }
+            else
+            {
+                Debug.DrawRay(mainCamera.position, mainCamera.TransformDirection(Vector3.forward) * 1000, Color.white);
+                Debug.Log("Did not Hit");
+            }
+        }
     }
 
     private void movePlayer()
