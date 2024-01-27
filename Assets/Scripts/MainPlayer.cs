@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MainPlayer : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class MainPlayer : MonoBehaviour
     private LayerMask IgnoreMe;
     [SerializeField]
     private float pingDistance = 5f;
+    [SerializeField]
+    private UnityEvent gameWon;
 
     private bool isTouchingGround = true;
     private Vector2 cameraRotation;
@@ -29,8 +32,11 @@ public class MainPlayer : MonoBehaviour
     private Vector2 previousRotation;
     private Vector3 cameraPreviousRotation;
     private Vector3 PlayerPreviousRotation;
+    private bool hasWon = false;
+    private bool isPaused = false;
     private void Start()
     {
+        MainGameSingleton.singletonInstance.player = this;
         rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -38,9 +44,13 @@ public class MainPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movePlayer();
-        rotateCamera();
-        doInteractions();
+        if(!hasWon && !isPaused)
+        {
+            movePlayer();
+            rotateCamera();
+            doInteractions();
+        }
+        
     }
 
     private void doInteractions()
@@ -117,5 +127,13 @@ public class MainPlayer : MonoBehaviour
         {
             isTouchingGround = true;
         }
+    }
+
+    public void onWin()
+    {
+        gameWon.Invoke();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        hasWon = true;
     }
 }

@@ -28,6 +28,7 @@ public class ChildScript : MonoBehaviour
             currentHealth -= damagePerSecondRecieved * Time.deltaTime;
             if(currentHealth < 0)
             {
+                MainGameSingleton.singletonInstance.kidSmoked(this);
                 Destroy(gameObject);
             }
         }
@@ -39,6 +40,7 @@ public class ChildScript : MonoBehaviour
             currentHealth -= damagePerSecondRecieved * Time.deltaTime;
             if (currentHealth < 0)
             {
+                MainGameSingleton.singletonInstance.kidSmoked(this);
                 Destroy(gameObject);
             }
         }
