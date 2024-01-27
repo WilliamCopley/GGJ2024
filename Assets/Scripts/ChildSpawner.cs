@@ -9,20 +9,17 @@ public class ChildSpawner : MonoBehaviour
     [SerializeField]
     private int spawnAmount = 2;
     [SerializeField]
-    private List<Transform> children;
+    private List<ChildScript> children;
    
     // Start is called before the first frame update
     void Start()
     {
-        foreach (Transform child in transform)
-        {
-            children.Add(child);
-        }
+        children = MainGameSingleton.singletonInstance.kids;
 
         while (children.Count > spawnAmount)
         {
             int chosenItem = Random.Range(0, children.Count);
-            Transform destroyObject = children[chosenItem];
+            Transform destroyObject = children[chosenItem].transform;
             children.RemoveAt(chosenItem);
             Destroy(destroyObject.gameObject);
 

@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class MainGameSingleton : MonoBehaviour
 {
-    public static List<Transform> children;
+    public static MainGameSingleton singletonInstance;
+    public List<ChildScript> kids;
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        singletonInstance = this;
     }
 }

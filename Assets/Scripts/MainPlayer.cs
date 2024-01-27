@@ -19,6 +19,8 @@ public class MainPlayer : MonoBehaviour
     private Transform bulletsParent;
     [SerializeField]
     private LayerMask IgnoreMe;
+    [SerializeField]
+    private float pingDistance = 5f;
 
     private bool isTouchingGround = true;
     private Vector2 cameraRotation;
@@ -43,10 +45,18 @@ public class MainPlayer : MonoBehaviour
 
     private void doInteractions()
     {
+        if (Input.GetButtonDown("Fire2"))
+        {
+            print("DOING PING");
+            foreach (ChildScript eachKid in MainGameSingleton.singletonInstance.kids)
+            {
+                eachKid.doPing(transform, pingDistance);
+            }
+        }
+
         if (Input.GetButtonDown("Fire1"))
         {
             RaycastHit hit;
-            // Does the ray intersect any objects excluding the player layer
             if (Physics.Raycast(mainCamera.position, mainCamera.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, ~IgnoreMe))
             {
                 GameObject spawnedObject = GameObject.Instantiate(smokeObject);
@@ -58,22 +68,15 @@ public class MainPlayer : MonoBehaviour
         if (Input.GetButtonDown("Interact"))
         {
             RaycastHit hit;
-            // Does the ray intersect any objects excluding the player layer
             if (Physics.Raycast(mainCamera.position, mainCamera.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, ~IgnoreMe))
             {
-                Debug.DrawRay(mainCamera.position, mainCamera.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                Debug.Log("Did Hit");
                 Interactable tempInteractable = hit.transform.GetComponent<Interactable>();
                 if(tempInteractable != null)
                 {
                     tempInteractable.doInteract();
                 }
             }
-            else
-            {
-                Debug.DrawRay(mainCamera.position, mainCamera.TransformDirection(Vector3.forward) * 1000, Color.white);
-                Debug.Log("Did not Hit");
-            }
+ 
         }
     }
 

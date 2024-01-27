@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ChildScript : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 10;
+    [SerializeField] 
+    private float maxHealth = 10;
+    [SerializeField]
+    private float damagePerSecondRecieved = 1;
+    [SerializeField] 
+    private UnityEvent pinged;
+
+
     public float currentHealth;
-    [SerializeField]private float damagePerSecondRecieved = 1;
-    // Start is called before the first frame update
+
     void Start()
     {
-        MainGameSingleton.children.Add(transform);
+        MainGameSingleton.singletonInstance.kids.Add(this);
         currentHealth = maxHealth;
     }
 
@@ -34,6 +41,17 @@ public class ChildScript : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+        }
+    }
+
+    public void doPing(Transform mainPlayerPinged, float pingDistance)
+    {
+        print("Checking distance:" + Vector3.Distance(transform.position, mainPlayerPinged.position));
+        if(Vector3.Distance(transform.position, mainPlayerPinged.position) < pingDistance)
+        {
+            print("I WAS HIT");
+            pinged.Invoke();
+
         }
     }
 }
