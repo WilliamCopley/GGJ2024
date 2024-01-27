@@ -113,7 +113,8 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _alpha: 1
+    - _alpha: 0.5
+    - _colorTimeMultiplier: 1000000
     - _gradientScale: 2
     - _highIntensity: 0.7
     - _lowIntensity: 0.5
