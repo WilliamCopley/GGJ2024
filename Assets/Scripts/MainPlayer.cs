@@ -97,6 +97,9 @@ public class MainPlayer : MonoBehaviour
 
         if (cameraRotation.y < -75) { cameraRotation.y = -75; }
         if (cameraRotation.y > 75) { cameraRotation.y = 75; }
+
+        if(cameraRotation.x < 0)cameraRotation.x += 360;
+        if (cameraRotation.x > 360) cameraRotation.x -= 360;
         transform.localRotation = Quaternion.Euler(0, cameraRotation.x, 0);
         mainCamera.localRotation = Quaternion.Euler(-cameraRotation.y, 0, 0);
 }
