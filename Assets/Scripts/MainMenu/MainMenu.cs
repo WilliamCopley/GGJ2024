@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Quit : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,17 @@ public class Quit : MonoBehaviour
         
     }
 
-    public void QuitGame()
+    public void Play()
+    {
+        Debug.Log("Pressed Play");
+    }
+
+    public void Credits()
+    {
+        Debug.Log("Pressed Credits");
+    }
+
+    public void Quit()
     {
         Application.Quit();
     }
