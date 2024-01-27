@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        Debug.Log("Pressed Play");
+        SceneManager.LoadScene("TheHouse");
     }
 
     public void Credits()
