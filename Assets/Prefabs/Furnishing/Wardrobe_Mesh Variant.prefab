@@ -253,7 +253,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -4543279533796599298, guid: f374b1c1dc1521d4d85b21eacbd7edff,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9165640349669493081}
+      addedObject: {fileID: 7383545603648787007}
     - targetCorrespondingSourceObject: {fileID: -3379754440077058421, guid: f374b1c1dc1521d4d85b21eacbd7edff,
         type: 3}
       insertIndex: -1
@@ -265,7 +265,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -3379754440077058421, guid: f374b1c1dc1521d4d85b21eacbd7edff,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5042620011268713797}
+      addedObject: {fileID: 3192445101873753470}
   m_SourcePrefab: {fileID: 100100000, guid: f374b1c1dc1521d4d85b21eacbd7edff, type: 3}
 --- !u!1 &222050119975575378 stripped
 GameObject:
@@ -312,7 +312,7 @@ MonoBehaviour:
   changingAnimator: {fileID: 4128126558702121539}
   animatorField: interactionToggle
   isInverseAnimation: 0
---- !u!65 &9165640349669493081
+--- !u!65 &7383545603648787007
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -331,8 +331,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.10000018, y: 1.5326493, z: 0.66599995}
-  m_Center: {x: -0.049999926, y: 0.000000029802322, z: -0.33299997}
+  m_Size: {x: 0.12500024, y: 1.9158118, z: 0.8325}
+  m_Center: {x: -0.06249991, y: 0.000000059604645, z: -0.41625}
 --- !u!1 &1368906286616418343 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3379754440077058421, guid: f374b1c1dc1521d4d85b21eacbd7edff,
@@ -378,7 +378,7 @@ MonoBehaviour:
   changingAnimator: {fileID: 8882591098067785772}
   animatorField: interactionToggle
   isInverseAnimation: 1
---- !u!65 &5042620011268713797
+--- !u!65 &3192445101873753470
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -397,8 +397,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1000002, y: 1.5326493, z: 0.6660001}
-  m_Center: {x: -0.050000295, y: 0.000000029802322, z: 0.33300006}
+  m_Size: {x: 0.12500024, y: 1.9158118, z: 0.8325}
+  m_Center: {x: -0.06249991, y: 0.000000059604645, z: 0.41625}
 --- !u!4 &4930701899768209735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f374b1c1dc1521d4d85b21eacbd7edff,
@@ -430,5 +430,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.54364824, y: 1.7999998, z: 1.4800003}
-  m_Center: {x: 0.16817594, y: 0.90000004, z: 0}
+  m_Size: {x: 0.713974, y: 2.2430387, z: 1.9492822}
+  m_Center: {x: 0.19383621, y: 1.1215193, z: 0.0290339}
