@@ -22,13 +22,18 @@ public class Credits : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (yPos > startYPos * -1)
+        if (yPos < startYPos * -1)
         {
-            yPos -= scrollSpeed * Time.deltaTime;
+            yPos += scrollSpeed * Time.deltaTime;
             creditsList.transform.localPosition = new Vector3(0, yPos, 0);
         } else
         {
-            SceneManager.LoadScene("MainMenu");
+            returnToMenu();
         }
+    }
+
+    public void returnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
