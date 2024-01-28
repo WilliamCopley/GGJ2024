@@ -34,6 +34,8 @@ public class MainPlayer : MonoBehaviour
     private float pingTimerEventFrequency = 0.5f;
     [SerializeField]
     public UnityEvent<float> cooldownChanged;
+    [SerializeField]
+    private  AudioSource pingSource;
     private float previousCooldownEvent;
 
     private bool isTouchingGround = true;
@@ -48,6 +50,7 @@ public class MainPlayer : MonoBehaviour
     private float pingTimer;
     private bool hasWon = false;
     private bool isPaused = false;
+    private bool isPinging = false;
     
     private void Start()
     {
@@ -97,11 +100,18 @@ public class MainPlayer : MonoBehaviour
             previousCooldownEvent = 0;
             pingTimer = 0;
             cooldownChanged.Invoke(pingTimer);
-            print("DOING PING");
+            pingSource.Play();
+            isPinging = true;
+        }
+
+        if(isPinging && !pingSource.isPlaying)
+        {
+            isPinging = false;
             foreach (ChildScript eachKid in MainGameSingleton.singletonInstance.kids)
             {
-                if(eachKid != null) { 
-                    eachKid.doPing(transform, pingDistance); 
+                if (eachKid != null)
+                {
+                    eachKid.doPing(transform, pingDistance);
                 }
             }
         }
