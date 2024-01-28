@@ -775,6 +775,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 839777077}
     m_Modifications:
+    - target: {fileID: 974842922337822737, guid: b8c3c1243df01f641831c8eaddae8ca6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1091305489052584543, guid: b8c3c1243df01f641831c8eaddae8ca6,
         type: 3}
       propertyPath: m_RootOrder
@@ -830,10 +835,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1676946663351410981, guid: b8c3c1243df01f641831c8eaddae8ca6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817892672759754399, guid: b8c3c1243df01f641831c8eaddae8ca6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6546786247348867874, guid: b8c3c1243df01f641831c8eaddae8ca6,
         type: 3}
       propertyPath: m_Name
       value: WallDoorPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546786247348867874, guid: b8c3c1243df01f641831c8eaddae8ca6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -942,7 +962,7 @@ GameObject:
   m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &407705269
 MeshCollider:
@@ -3294,6 +3314,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 839777077}
     m_Modifications:
+    - target: {fileID: 974842922337822737, guid: b8c3c1243df01f641831c8eaddae8ca6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1091305489052584543, guid: b8c3c1243df01f641831c8eaddae8ca6,
         type: 3}
       propertyPath: m_RootOrder
@@ -3349,10 +3374,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1676946663351410981, guid: b8c3c1243df01f641831c8eaddae8ca6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6546786247348867874, guid: b8c3c1243df01f641831c8eaddae8ca6,
         type: 3}
       propertyPath: m_Name
       value: WallDoorPrefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546786247348867874, guid: b8c3c1243df01f641831c8eaddae8ca6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5299,10 +5334,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 839777077}
     m_Modifications:
+    - target: {fileID: 39621719213108024, guid: b9b3652f5ffae6947b2a1221fca4959a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2705796422564038165, guid: b9b3652f5ffae6947b2a1221fca4959a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333673401196999612, guid: b9b3652f5ffae6947b2a1221fca4959a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6684494229664007404, guid: b9b3652f5ffae6947b2a1221fca4959a,
         type: 3}
       propertyPath: m_Name
       value: WallDoubleDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684494229664007404, guid: b9b3652f5ffae6947b2a1221fca4959a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8714481322533777976, guid: b9b3652f5ffae6947b2a1221fca4959a,
         type: 3}
@@ -5358,6 +5413,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073812954048980441, guid: b9b3652f5ffae6947b2a1221fca4959a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5897,7 +5957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1550599157
 Light:
   m_ObjectHideFlags: 0
@@ -5916,7 +5976,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
