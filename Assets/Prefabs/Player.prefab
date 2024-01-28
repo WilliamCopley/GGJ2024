@@ -2290,7 +2290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  sensitivity: 400
+  sensitivity: 100
   mainCamera: {fileID: 9078459507178959186}
   jumpHeight: 300
   smokeObject: {fileID: 5320003381682442059, guid: 2f613656e281f014aaadd24486a98559,
