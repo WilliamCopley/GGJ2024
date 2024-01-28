@@ -24,6 +24,17 @@ public class MainPlayer : MonoBehaviour
     private float pingDistance = 5f;
     [SerializeField]
     private UnityEvent gameWon;
+    [SerializeField]
+    private float jumpCooldown = 0.5f;
+    [SerializeField]
+    private float fireRate = 0.3f;
+    [SerializeField]
+    private float pingCooldown = 10f;
+    [SerializeField]
+    private float pingTimerEventFrequency = 0.5f;
+    [SerializeField]
+    public UnityEvent<float> cooldownChanged;
+    private float previousCooldownEvent;
 
     private bool isTouchingGround = true;
     private Vector2 cameraRotation;
@@ -32,8 +43,12 @@ public class MainPlayer : MonoBehaviour
     private Vector2 previousRotation;
     private Vector3 cameraPreviousRotation;
     private Vector3 PlayerPreviousRotation;
+    private float jumpTimer;
+    private float fireTimer;
+    private float pingTimer;
     private bool hasWon = false;
     private bool isPaused = false;
+    
     private void Start()
     {
         MainGameSingleton.singletonInstance.player = this;
@@ -46,6 +61,7 @@ public class MainPlayer : MonoBehaviour
     {
         if(!hasWon && !isPaused)
         {
+            doTimers();
             movePlayer();
             rotateCamera();
             doInteractions();
@@ -53,10 +69,34 @@ public class MainPlayer : MonoBehaviour
         
     }
 
+    private void doTimers()
+    {
+        if (fireTimer < fireRate)
+        {
+            fireTimer += Time.deltaTime;
+        }
+        if (pingTimer < pingCooldown)
+        {
+            pingTimer += Time.deltaTime;
+            if(pingTimer >= pingCooldown || pingTimer >= previousCooldownEvent + pingTimerEventFrequency)
+            {
+                previousCooldownEvent = pingTimer;
+                cooldownChanged.Invoke(pingTimer);
+            }
+        }
+        if (!isTouchingGround && jumpTimer < jumpCooldown)
+        {
+            jumpTimer += Time.deltaTime;
+        }
+    }
+
     private void doInteractions()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && pingTimer >= pingCooldown)
         {
+            previousCooldownEvent = 0;
+            pingTimer = 0;
+            cooldownChanged.Invoke(pingTimer);
             print("DOING PING");
             foreach (ChildScript eachKid in MainGameSingleton.singletonInstance.kids)
             {
@@ -66,8 +106,9 @@ public class MainPlayer : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1") && fireTimer >= fireRate)
         {
+            fireTimer = 0;
             RaycastHit hit;
             if (Physics.Raycast(mainCamera.position, mainCamera.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, ~IgnoreMe))
             {
@@ -100,8 +141,9 @@ public class MainPlayer : MonoBehaviour
         Vector3 forwardMove = forwardsVector * Input.GetAxis("Vertical") * speed * Time.deltaTime;
         transform.position += horizontalMove + forwardMove;
 
-        if (isTouchingGround && Input.GetButtonDown("Jump"))
+        if (isTouchingGround && Input.GetButton("Jump"))
         {
+            jumpTimer = 0;
             rb.AddForce(transform.up * jumpHeight);
             isTouchingGround = false;
         }
@@ -121,13 +163,14 @@ public class MainPlayer : MonoBehaviour
         mainCamera.localRotation = Quaternion.Euler(-cameraRotation.y, cameraRotation.x, 0);
 }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if(collision.gameObject.tag == "ground")
+        if (isTouchingGround == false && other.gameObject.tag == "ground" && jumpTimer > jumpCooldown)
         {
             isTouchingGround = true;
         }
     }
+
 
     public void onWin()
     {
