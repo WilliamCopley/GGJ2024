@@ -11,7 +11,8 @@ public class ChildScript : MonoBehaviour
     private float damagePerSecondRecieved = 1;
     [SerializeField] 
     private UnityEvent pinged;
-
+    [SerializeField]
+    private AudioSource kidLaugh;
 
     public float currentHealth;
 
@@ -37,6 +38,12 @@ public class ChildScript : MonoBehaviour
     {
         if (other.gameObject.layer == 6)
         {
+            if(!kidLaugh.loop)
+            {
+                kidLaugh.loop = true;
+                kidLaugh.Play();
+            }
+            kidLaugh.volume = currentHealth / maxHealth;
             currentHealth -= damagePerSecondRecieved * Time.deltaTime;
             if (currentHealth < 0)
             {

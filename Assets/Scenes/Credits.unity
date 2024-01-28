@@ -348,7 +348,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -1330}
-  m_SizeDelta: {x: 0, y: 455}
+  m_SizeDelta: {x: 0, y: 502.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &935369650
 MonoBehaviour:
@@ -372,9 +372,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Game by:\nEmily Copley\nHunter Jessop\nRyan Swiatnik\n\nAudio from freesound.org:\nHorn:
     \"Horn 1 (Too-doo Clown).mp3\" by FunWithSound\nSmoke hiss: \"Tape Hiss from
-    Blank Tape - No NR\" by kijjaz\nGiggle: baby_giggle.aif by tim.kahn\nBackground
-    Music: \"Horror music #4.wav\" by ZHR\xD8\nBackground Ambience: \"Eerie Tone
-    Music Background Loop\" by TheDweebMan"
+    Blank Tape - No NR\" by kijjaz\nGiggle: \"baby_giggle.aif\" by tim.kahn\nLaughter:
+    \"Shrieking Laughter\" by plasterbrain\nBackground Music: \"Horror music #4.wav\"
+    by ZHR\xD8\nBackground Ambience: \"Eerie Tone Music Background Loop\" by TheDweebMan"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
