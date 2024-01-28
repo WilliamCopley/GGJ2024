@@ -1373,11 +1373,6 @@ PrefabInstance:
       propertyPath: bulletsParent
       value: 
       objectReference: {fileID: 1512131550}
-    - target: {fileID: 5104372381311103982, guid: 14150a8695b9b5b4490b922e63bfa501,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7684968887964169055, guid: 14150a8695b9b5b4490b922e63bfa501,
         type: 3}
       propertyPath: m_AnchorMax.x

@@ -23,6 +23,8 @@ public class ChildSpawner : MonoBehaviour
             Destroy(destroyObject.gameObject);
 
         }
+
+        MainGameSingleton.singletonInstance.kidsSpawned(children.Count);
     }
 
 
