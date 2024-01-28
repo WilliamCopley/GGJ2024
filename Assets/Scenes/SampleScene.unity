@@ -624,41 +624,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8396311446188110939, guid: 32703e21f3f8e3f4d88823fafe1dd596,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7c50416d1289288428835f3ad8c43f73, type: 2}
-    - target: {fileID: 8396311446188110939, guid: 32703e21f3f8e3f4d88823fafe1dd596,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9969a96f23630674a84861ab1bd9c0ae, type: 2}
-    - target: {fileID: 8396311446188110939, guid: 32703e21f3f8e3f4d88823fafe1dd596,
-        type: 3}
-      propertyPath: m_Materials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: 45fdc6558cd73684db673eb7012bbd2e, type: 2}
-    - target: {fileID: 8396311446188110939, guid: 32703e21f3f8e3f4d88823fafe1dd596,
-        type: 3}
-      propertyPath: m_Materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2568a50236036bf44b6090c8ca2ec621, type: 2}
-    - target: {fileID: 8396311446188110939, guid: 32703e21f3f8e3f4d88823fafe1dd596,
-        type: 3}
-      propertyPath: m_Materials.Array.data[4]
-      value: 
-      objectReference: {fileID: 2100000, guid: ae66e443f772e7a4da99f63948f3d967, type: 2}
-    - target: {fileID: 8396311446188110939, guid: 32703e21f3f8e3f4d88823fafe1dd596,
-        type: 3}
-      propertyPath: m_Materials.Array.data[5]
-      value: 
-      objectReference: {fileID: 2100000, guid: d758e83a16e43e549a41cf6509b7f539, type: 2}
-    - target: {fileID: 8396311446188110939, guid: 32703e21f3f8e3f4d88823fafe1dd596,
-        type: 3}
-      propertyPath: m_Materials.Array.data[6]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1e3b09dc9f0f01e4fbb1f0707bd6de63, type: 2}
     - target: {fileID: 8465832870320472848, guid: 32703e21f3f8e3f4d88823fafe1dd596,
         type: 3}
       propertyPath: m_Name
